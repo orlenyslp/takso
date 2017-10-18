@@ -5,7 +5,7 @@ defmodule Takso.User do
     field :name, :string
     field :username, :string
     field :password, :string
-
+    has_many :bookings, Takso.Booking
     timestamps()
   end
 

@@ -9,8 +9,14 @@ defmodule Takso.BookingController do
       render(conn, "new.html", changeset: changeset)
     end
 
-    def create(conn, _params) do
+    def create(conn, %{"booking" => booking_params}) do
+      user = conn.assigns.current_user
+      
+      booking_struct = build_assoc(user, :bookings, Enum.map(booking_params, fn({key, value}) -> {String.to_atom(key), value} end))
+      Repo.insert(booking_struct)
+      
       available_taxis = Repo.all(from t in Taxi, where: t.status == "available", select: t)
+
       if length(available_taxis) > 0 do
         conn
         |> put_flash(:info, "Your taxi will arrive in 5 minutes")
@@ -25,6 +31,5 @@ defmodule Takso.BookingController do
     def index(conn, _params) do
       render conn, "index.html"
     end
-
 
   end

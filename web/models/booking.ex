@@ -4,7 +4,8 @@ defmodule Takso.Booking do
   schema "bookings" do
     field :pickup_address, :string
     field :dropoff_address, :string
-
+    field :status, :string, default: "open"
+    belongs_to :user, Takso.User
     timestamps()
   end
 
