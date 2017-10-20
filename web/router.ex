@@ -19,6 +19,7 @@ defmodule Takso.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    get "/bookings/summary", BookingController, :summary
     resources "/bookings", BookingController
     resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
