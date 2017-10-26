@@ -1,0 +1,22 @@
+{
+    "destination_addresses" : [ "Raatuse 22, 51009 Tartu, Estonia" ],
+    "origin_addresses" : [ "Juhan Liivi 2, 50409 Tartu, Estonia" ],
+    "rows" : [
+       {
+          "elements" : [
+             {
+                "distance" : {
+                   "text" : "2.3 km",
+                   "value" : 2300
+                },
+                "duration" : {
+                   "text" : "6 mins",
+                   "value" : 379
+                },
+                "status" : "OK"
+             }
+          ]
+       }
+    ],
+    "status" : "OK"
+ }

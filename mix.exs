@@ -47,7 +47,12 @@ defmodule Takso.Mixfile do
       {:comeonin, "~> 4.0"},
       {:pbkdf2_elixir, "~> 0.12"},
       {:canary, "~> 1.1.1"},
-      {:guardian, "~> 0.14"}
+      {:guardian, "~> 0.14"},
+      {:mock, "~> 0.2.0", only: :test},
+      {:ex_machina, "~> 2.1", only: :test},
+      {:faker, "~> 0.9", only: :test},
+      {:httpoison, "~> 0.13"},
+      {:poison, "~> 3.1"}
     ]
   end
 
