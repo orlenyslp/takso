@@ -25,3 +25,12 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :guardian, Guardian,
+  issuer: "Takso",
+  ttl: { 30, :days },
+  allowed_drift: 2000,
+  secret_key: "lu2s9niLTpVzRbAaovKjrB6DF5mgwbx21e+K4KgkZ/vQrU2Wi3LqAwsPuYw5qfML",
+  serializer: Takso.GuardianSerializer
+
+  config :canary, unauthorized_handler: {Takso.SessionController, :unauthorize}

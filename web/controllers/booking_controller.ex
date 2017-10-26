@@ -2,12 +2,14 @@ defmodule Takso.BookingController do
     use Takso.Web, :controller
 
     import Ecto.Query, only: [from: 2]
+    import Canary.Plugs
     alias Takso.{Booking, Taxi, Repo, Allocation}
     alias Ecto.{Multi, Changeset}
+
+    plug :authorize_resource, model: Booking, non_id_actions: [:summary]
   
     def new(conn, _params) do
-      changeset = Booking.changeset(%Booking{})
-      render(conn, "new.html", changeset: changeset)
+      render(conn, "new.html", changeset: Booking.changeset(%Booking{}))
     end
 
     def create(conn, %{"booking" => booking_params}) do

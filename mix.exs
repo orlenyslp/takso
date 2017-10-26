@@ -43,7 +43,11 @@ defmodule Takso.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:white_bread, "~> 4.1", only: [:test]},
-      {:hound, "~> 1.0"}
+      {:hound, "~> 1.0"},
+      {:comeonin, "~> 4.0"},
+      {:pbkdf2_elixir, "~> 0.12"},
+      {:canary, "~> 1.1.1"},
+      {:guardian, "~> 0.14"}
     ]
   end
 

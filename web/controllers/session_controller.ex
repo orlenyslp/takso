@@ -24,4 +24,11 @@ defmodule Takso.SessionController do
         |> redirect(to: page_path(conn, :index))
     end
 
+    def unauthorize(conn) do
+        conn
+        |> put_flash(:error, "Nothing to see there")
+        |> redirect(to: page_path(conn, :index))
+        |> halt
+    end
+
 end

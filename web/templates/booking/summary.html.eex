@@ -1,10 +1,10 @@
-<h2>Booking Summary</h2>
+<h2>Accepted Bookings Summary</h2>
 
 <table class="table">
   <thead>
     <tr>
       <th>Taxi username</th>
-      <th>Amount Accepted</th>
+      <th>Number of accepted bookings</th>
     </tr>
   </thead>
   <tbody>
