@@ -34,3 +34,5 @@ config :guardian, Guardian,
   serializer: Takso.GuardianSerializer
 
   config :canary, unauthorized_handler: {Takso.SessionController, :unauthorize}
+
+  config :takso, gmaps_api_key: "AIzaSyDj57qhnRzDQnXFzAZnFPaClUbhv2CT_S0"

@@ -25,7 +25,8 @@ defmodule Takso.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Takso do
-  #   pipe_through :api
-  # end
+   scope "/api", Takso do
+     pipe_through :api
+     post "/bookings", BookingAPIController, :create
+   end
 end

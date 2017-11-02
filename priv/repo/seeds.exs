@@ -19,7 +19,7 @@ alias Takso.{Repo, User, Taxi}
  |> Enum.map(fn user_data -> User.changeset(%User{}, user_data) end)
  |> Enum.each(fn changeset -> Repo.insert!(changeset) end)
 
-[%{username: "bilbo", location: "Uus turu 2, Tartu", status: "available"},
+[%{username: "bilbo", location: "Turu 2, Tartu", status: "available"},
 %{username: "frodo", location: "Raatuse 22, Tartu", status: "available"}] 
 |> Enum.map(fn taxi_data -> Taxi.changeset(%Taxi{}, taxi_data) end)
 |> Enum.each(fn changeset -> Repo.insert!(changeset) end)
