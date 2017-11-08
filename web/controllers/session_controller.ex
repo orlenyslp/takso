@@ -6,21 +6,29 @@ defmodule Takso.SessionController do
     end
 
     def create(conn, %{"session" => %{"username" => username, "password" => password}}) do
-        case Takso.Authentication.check_credentials(conn, username, password, repo: Takso.Repo) do
-            {:ok, conn} ->
-              conn
-              |> put_flash(:info, "Welcome #{username}")
-              |> redirect(to: page_path(conn, :index))
-            {:error, _reason, conn} ->
-              conn
-              |> put_flash(:error, "Bad credentials")
-              |> render("new.html")
-          end    
+        user = Repo.get_by(Takso.User, username: username)
+        case Takso.Authentication.check_credentials(conn, user, password) do
+          {:ok, conn} ->    
+                conn
+                |> Guardian.Plug.sign_in(user)
+                |> put_flash(:info, "Welcome #{username}")
+                |> redirect(to: page_path(conn, :index))
+          {:error, conn} ->
+                conn
+                |> put_flash(:error, "Bad credentials")
+                |> render("new.html")
+        end    
+    end
+      
+    def delete(conn, _) do
+        conn
+        |> Guardian.Plug.sign_out
+        |> redirect(to: page_path(conn, :index))
     end
 
-    def delete(conn, _params) do
+    def unauthenticated(conn, _params) do
         conn
-        |> Takso.Authentication.logout()
+        |> put_flash(:error, "Authentication required")
         |> redirect(to: page_path(conn, :index))
     end
 

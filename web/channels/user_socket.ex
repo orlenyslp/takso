@@ -3,6 +3,8 @@ defmodule Takso.UserSocket do
 
   ## Channels
   # channel "room:*", Takso.RoomChannel
+  channel "driver:*", Takso.DriverChannel
+  channel "customer:*", Takso.CustomerChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -34,4 +36,5 @@ defmodule Takso.UserSocket do
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil
+
 end

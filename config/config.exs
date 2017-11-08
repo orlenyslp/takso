@@ -30,7 +30,7 @@ config :guardian, Guardian,
   issuer: "Takso",
   ttl: { 30, :days },
   allowed_drift: 2000,
-  secret_key: "lu2s9niLTpVzRbAaovKjrB6DF5mgwbx21e+K4KgkZ/vQrU2Wi3LqAwsPuYw5qfML",
+  secret_key: "+KUU+VeHr4/923eJxxDH4mjqf5ETUkOw2coXgQbzfheM6ce43JAaDFTdaQNKlg96",
   serializer: Takso.GuardianSerializer
 
   config :canary, unauthorized_handler: {Takso.SessionController, :unauthorize}
